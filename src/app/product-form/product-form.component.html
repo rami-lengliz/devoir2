@@ -1,0 +1,17 @@
+<p>product-form works!</p>
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <label for="name">Product Name</label>
+    <input type="text" id="name" formControlName="name">
+    <div *ngIf="productForm.controls['name'].invalid && productForm.controls['name'].touched">
+      Name is required
+    </div>
+  
+    <label for="price">Price</label>
+    <input type="number" id="price" formControlName="price">
+    <div *ngIf="productForm.controls['price'].invalid && productForm.controls['price'].touched">
+      Price is required
+    </div>
+  
+    <button type="submit" [disabled]="productForm.invalid">Add Product</button>
+  </form>
+  
